@@ -1,11 +1,12 @@
 import {useTheme, Text, Spacer} from '@nextui-org/react'
+import NextLink from 'next/link';
 import Image from 'next/image';
 
 const NavBar = () => {
 
   const {theme} = useTheme();
   const gray = theme?.colors.gray900.value
-
+  
   return (
     <div style={{
         display: 'flex',
@@ -16,17 +17,36 @@ const NavBar = () => {
         justifyContent: 'start',
         
     }}>
-        <Image
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
-            alt='Icon Pok'
-            width={70}
-            height={70}
-        />
-        <Text color='white' h2>P</Text>
-        <Text color='white' h3>okemón</Text>
+      <NextLink href={'/'}>
+        
+          <Image
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+                alt='Icon Pok'
+                width={70}
+                height={70}           
+            />
+
+     
+      </NextLink>
+
+      <Text color='#16181A' h2>P</Text>
+      <Text color='#16181A' h3>okemón</Text>
+      
+        
 
         <Spacer css={{flex:1}}/>
-        <Text color='white' h3>Favoritos</Text> 
+
+        <NextLink href={'/favorites/favorites'} passHref>
+          <Text color='#16181A' h3
+            onClick={()=>{
+              console.log("Favoritos")
+            }}
+            css={{
+              cursor: 'pointer'
+            }}
+          >Favoritos</Text> 
+        </NextLink>
+        
         
     </div>
   )

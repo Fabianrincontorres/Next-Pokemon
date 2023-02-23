@@ -1,6 +1,8 @@
 export interface Pokemon{
     name: string;
     url: string;
+    id: number;
+    image: string;
 }
 
 export interface PokemonResponse{
@@ -9,5 +11,3 @@ export interface PokemonResponse{
     previous?: string | null;
     results: Pokemon[]
 }
-
-  
